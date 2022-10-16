@@ -2,6 +2,9 @@ html{
     overflow-x: hidden;
   
 }
+.table-list{
+    overflow: auto;
+}
 .paging{
     display: flex;
     justify-content: center;
