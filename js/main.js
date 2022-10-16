@@ -11,9 +11,11 @@ function renderFilterByQueryStringParams() {
         maxPrice: +queryStringParams.get('maxPrice') || 50,
         minRate: +queryStringParams.get('minRate') || 0,
         bookName: queryStringParams.get('bookName') || '',
-        bookId: +queryStringParams.get('bookId') || 0
+        bookId: +queryStringParams.get('bookId') || 0,
+        language: queryStringParams.get('language')
     }
-
+    onSetLang(filterBy.language)
+    document.querySelector('.lang').value = filterBy.language
 
     if (!filterBy.maxPrice && !filterBy.minRate && !filterBy.bookName && !filterBy.bookId) return
 
@@ -173,7 +175,7 @@ function onPageBefore() {
 
 
 function setQueryParams(){
-    const queryStringParams = `?maxPrice=${gFilterBy.maxPrice}&minRate=${gFilterBy.minRate}&bookName=${gFilterBy.bookName}&bookId=${gFilterBy.bookId}`
+    const queryStringParams = `?maxPrice=${gFilterBy.maxPrice}&minRate=${gFilterBy.minRate}&bookName=${gFilterBy.bookName}&bookId=${gFilterBy.bookId}&language=${getLang()}`
     const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
     window.history.pushState({ path: newUrl }, '', newUrl)
 }
@@ -186,6 +188,7 @@ function onSetPresentation(pres){
 
 function onSetLang(lang){
     setLang(lang)
+    setQueryParams()
     setDirection(lang)
     doTrans()
 }

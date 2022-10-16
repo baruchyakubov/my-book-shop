@@ -5,7 +5,7 @@ const PAGE_SIZE = 8
 
 var gPageIdx = 0
 var gBooks
-var gFilterBy = {maxPrice: 50 , minRate: 0 , bookName:'',bookId:0}
+var gFilterBy = {maxPrice: 50 , minRate: 0 , bookName:'',bookId:0 , language: 'en'}
 var gPresentation
 
 function getPresentation(){
@@ -22,7 +22,7 @@ function getPresentation(){
 
 function getBooks(){
     var books = gBooks.filter(book => book.rate >= gFilterBy.minRate &&
-        book.price <= gFilterBy.maxPrice && book.name.includes(gFilterBy.bookName))
+        book.price <= gFilterBy.maxPrice && book.name.toUpperCase().includes(gFilterBy.bookName.toUpperCase()))
 
         const startIdx = gPageIdx * PAGE_SIZE
         books = books.slice(startIdx, startIdx + PAGE_SIZE)

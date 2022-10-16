@@ -55,7 +55,7 @@
       <input type="range" min="0" max="10" value="0" class="filter-rate-range"
         onchange="this.title=this.value;onSetFilterBy({minRate: this.value})" />
     </label>
-    <select onchange="onSetLang(this.value)">
+    <select class="lang" onchange="onSetLang(this.value)">
       <option value="en">english</option>
       <option value="he">עברית</option>
     </select>
@@ -67,7 +67,7 @@
   </div>
   <section class="book-list container text-center $grid-breakpoints mb-5"></section>
   <section class="paging"></section>
-  <div class="description bg-success bg-gradient container text-center">
+  <div class="description bg-success bg-gradient  text-center">
     <h2></h2>
     <h3 data-trans="book-description">book description</h3>
     <p  class="des"></p>
