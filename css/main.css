@@ -1,0 +1,122 @@
+html{
+    overflow-x: hidden;
+  
+}
+.paging{
+    display: flex;
+    justify-content: center;
+    direction: ltr;
+}
+.btn-group{
+    margin-inline-start: 20px;
+    direction: ltr;
+}
+body.rtl {
+    direction: rtl;
+}
+
+.btn-actions{
+   display: flex;
+   justify-content: center;
+}
+.read , .update , .delete{
+    margin-left: 0.06rem;
+}
+
+
+
+
+.body{
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 50px;
+}
+
+td{
+    font-size: x-large;
+}
+
+th{
+    font-size: x-large;
+    background-color: hsla(50, 33%, 25%, .75);
+    padding: 20px;
+}
+
+.add{
+    margin-bottom: 1vh;
+}
+
+.description{
+    position: fixed;
+    border-radius: 10px;
+    text-align: center;
+    height: 30rem;
+    width: 40rem;
+    background-color: slateblue;
+    top: 0%;
+    left: 150%;
+    transition: left , 0.2s;
+}
+
+.open{
+    left: 100%;
+    transform: translate(-100%);  
+}
+
+.close{
+    position: absolute;
+    border-color: grey;
+    color: black;
+    top: 0%;
+    left: 100%;
+    transform: translate(-100%);
+}
+
+.rate{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.rate-value{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    border-radius: 5px;
+    font-size: large;
+    height: 3rem;
+    width: 5rem;
+}
+
+.low-rate , .high-rate{
+    color: black;
+    margin: 2px;
+}
+
+h4{
+    font-size: xx-large;
+}
+
+.next-page{
+    background-color: darkslateblue;
+    margin-top: 20px;
+}
+
+.cards{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+

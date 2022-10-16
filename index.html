@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <section class="header container-xx">
+    <title>book-shop</title>
+  </section>
+  <link rel="stylesheet" href="css/main.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body class="body" onload="onInit()">
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand text-bg-dark bg-gradient" data-trans="heading" href="#">my book shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-bg-dark bg-gradient" data-trans="home" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-bg-dark bg-gradient" data-trans="link" href="#">Link</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link disabled text-bg-dark bg-gradient" data-trans="disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 filter-by-txt" data-trans="search" type="search"
+            oninput="onSetFilterBy({bookName: this.value})" placeholder="search books" aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="filter container bg-secondary mb-5 bg-success bg-gradient">
+    <h4 data-trans="filter">filter:</h4>
+    <label>
+      <span data-trans="filter-by-price">Max price:</span>
+      <input type="range" min="10" max="50" value="50" class="filter-price-range"
+        onchange="this.title=this.value;onSetFilterBy({maxPrice: this.value})" />
+    </label>
+    <label>
+      <span data-trans="filter-by-rate">Min rate:</span>
+      <input type="range" min="0" max="10" value="0" class="filter-rate-range"
+        onchange="this.title=this.value;onSetFilterBy({minRate: this.value})" />
+    </label>
+    <select onchange="onSetLang(this.value)">
+      <option value="en">english</option>
+      <option value="he">עברית</option>
+    </select>
+    <button onclick="onAddBook()" data-trans="add-book" class="btn add bg-secondary bg-gradient">add book</button>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button data-pres="table" data-trans="table" onclick="onSetPresentation(this)" type="button" class="btn btn-primary">table</button>
+      <button data-pres="cards" data-trans="cards" onclick="onSetPresentation(this)" type="button" class="btn btn-primary">cards</button>
+    </div>
+  </div>
+  <section class="book-list container text-center $grid-breakpoints mb-5"></section>
+  <section class="paging"></section>
+  <div class="description bg-success bg-gradient container text-center">
+    <h2></h2>
+    <h3 data-trans="book-description">book description</h3>
+    <p  class="des"></p>
+    <div class="rate"></div>
+  </div>
+  <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="js/services/utils.service.js"></script>
+  <script src="js/services/storage.service.js"></script>
+  <script src="js/services/i18n.service.js"></script>
+  <script src="js/services/book.service.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
