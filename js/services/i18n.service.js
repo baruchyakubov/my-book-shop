@@ -77,6 +77,9 @@ const gTrans = {
         en: 'book description',
         he: 'פרטי הספר'
     }
+    
+ 
+
 }
 
 let gCurrLang = 'en'
@@ -97,6 +100,10 @@ function doTrans() {
         const trans = getTrans(transKey)
         el.innerText = trans
         if (el.placeholder) el.placeholder = trans
+        if(el.dataset.trans === 'price1'){
+            if(gCurrLang === 'en')el.innerText = new Intl.NumberFormat('us' , {style: 'currency' , currency: 'usd'}).format(parseInt(el.id))
+            else el.innerText = new Intl.NumberFormat('he' , {style: 'currency' , currency: 'ils'}).format(parseInt(el.id * 3.55))
+        }
     })
 }
 

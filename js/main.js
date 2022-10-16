@@ -12,7 +12,7 @@ function renderFilterByQueryStringParams() {
         minRate: +queryStringParams.get('minRate') || 0,
         bookName: queryStringParams.get('bookName') || '',
         bookId: +queryStringParams.get('bookId') || 0,
-        language: queryStringParams.get('language')
+        language: queryStringParams.get('language') || 'en'
     }
     onSetLang(filterBy.language)
     document.querySelector('.lang').value = filterBy.language
@@ -30,7 +30,6 @@ function renderFilterByQueryStringParams() {
 function renderBooks() {
     var presentation = getPresentation()
     var books = getBooks()
-   
 
     if(presentation === 'table'){
     document.querySelector('.book-list').innerHTML = 
@@ -47,7 +46,7 @@ var list = books.map(book => {
     return `<tr>
      <td>${book.id}</td>    
      <td>${book.name}</td>       
-     <td>${book.price + '$'}</td>       
+     <td id="${book.price}" data-trans="price1">${book.price}</td>       
      <td><butoon data-trans="read" onclick="onOpenDescription(${book.id})" class="btn read bg-success bg-gradient">read</button></td>       
      <td><butoon data-trans="update" onclick="onUpdateBook(${book.id})" class="btn update bg-primary bg-gradient">update</button></td>       
      <td><butoon data-trans="delete" onclick="onRemoveBook(${book.id})" class="btn delete bg-danger bg-gradient">delete</button></td>       
@@ -61,7 +60,7 @@ document.querySelector('.table-list').innerHTML += list.join('')
              <img src="${book.img}" class="card-img-top" alt="...">
              <div class="card-body">
                <h5 class="card-title">${book.name}</h5>
-               <p class="card-text">${book.price + '$'}</p>
+               <p id="${book.price}" data-trans="price1" class="card-text">${book.price}</p>
                <div class="btn-actions">
                <button data-trans="read" onclick="onOpenDescription(${book.id})" href="#" class="btn read bg-success bg-gradient">read</button>
                <button data-trans="update" onclick="onUpdateBook(${book.id})" href="#" class="btn update bg-primary bg-gradient">update</button>
@@ -69,7 +68,7 @@ document.querySelector('.table-list').innerHTML += list.join('')
                </div>
              </div>
            </div>`
-        })
+        }).join('')
     }
 
 
@@ -89,13 +88,14 @@ document.querySelector('.table-list').innerHTML += list.join('')
     </li>
   </ul>
 </nav>`
+
+onSetLang(getLang())
    
 }
 
 function onRemoveBook(bookId) {
     removeBook(bookId)
     renderBooks()
-    onSetLang(getLang())
 }
 
 function onUpdateBook(bookId) {
@@ -105,7 +105,6 @@ function onUpdateBook(bookId) {
     }
     updateBook(bookId, updatedPrice)
     renderBooks()
-    onSetLang(getLang())
 }
 
 function onAddBook() {
@@ -116,7 +115,6 @@ function onAddBook() {
     }
     AddBook(name, price)
     renderBooks()
-    onSetLang(getLang())
 }
 
 function onOpenDescription(bookId) {
@@ -127,7 +125,7 @@ function onOpenDescription(bookId) {
     setQueryParams()
 
     document.querySelector('.description').innerHTML += `<button onclick="onCloseDescription()" class="btn close">X</button>`
-    document.querySelector('h2').innerText = `${book.name} , price: ${book.price + '$'}`
+    document.querySelector('h2').innerText = `${book.name}`
     document.querySelector('.des').innerText = book.description
     document.querySelector('.rate').innerHTML = `
     <button onclick="onDecreaseRate(${bookId})" class="btn low-rate bg-dark text-bg-dark">-</button>
@@ -164,13 +162,11 @@ function onSetFilterBy(filterBy) {
 function onNextPage(){
     nextPage()
     renderBooks()
-    onSetLang(getLang())
 }
 
 function onPageBefore() {
     pageBefore()
     renderBooks()
-    onSetLang(getLang())
 }
 
 
@@ -183,7 +179,6 @@ function setQueryParams(){
 function onSetPresentation(pres){
     setPresentation(pres.dataset.pres)
     renderBooks()
-    onSetLang(getLang())
 }
 
 function onSetLang(lang){
