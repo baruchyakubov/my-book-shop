@@ -2,6 +2,10 @@ html{
     overflow-x: hidden;
   
 }
+.actions{
+    display: flex;
+    flex-wrap: wrap;
+}
 label , .add , .lang , .pres{
     margin-inline-start: 50px;
     margin-top: 10px;
@@ -132,5 +136,7 @@ h4{
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+
 
 
