@@ -47,9 +47,9 @@ var list = books.map(book => {
      <td>${book.id}</td>    
      <td>${book.name}</td>       
      <td id="${book.price}" data-trans="price1">${book.price}</td>       
-     <td><butoon data-trans="read" onclick="onOpenDescription(${book.id})" class="btn read bg-success bg-gradient">read</button></td>       
-     <td><butoon data-trans="update" onclick="onUpdateBook(${book.id})" class="btn update bg-primary bg-gradient">update</button></td>       
-     <td><butoon data-trans="delete" onclick="onRemoveBook(${book.id})" class="btn delete bg-danger bg-gradient">delete</button></td>       
+     <td><butoon data-trans="read" onclick="onOpenDescription(${book.id})" class="btn-actions  bg-success bg-gradient">read</button></td>       
+     <td><butoon data-trans="update" onclick="onUpdateBook(${book.id})" class="btn-actions  bg-primary bg-gradient">update</button></td>       
+     <td><butoon data-trans="delete" onclick="onRemoveBook(${book.id})" class="btn-actions  bg-danger bg-gradient">delete</button></td>       
 </tr>`
 }) 
 document.querySelector('.table-list').innerHTML += list.join('')
@@ -62,9 +62,9 @@ document.querySelector('.table-list').innerHTML += list.join('')
                <h5 class="card-title">${book.name}</h5>
                <p id="${book.price}" data-trans="price1" class="card-text">${book.price}</p>
                <div class="btn-actions">
-               <button data-trans="read" onclick="onOpenDescription(${book.id})" href="#" class="btn read bg-success bg-gradient">read</button>
-               <button data-trans="update" onclick="onUpdateBook(${book.id})" href="#" class="btn update bg-primary bg-gradient">update</button>
-               <button data-trans="delete" onclick="onRemoveBook(${book.id})" href="#" class="btn delete bg-danger bg-gradient">delte</button>
+               <button data-trans="read" onclick="onOpenDescription(${book.id})" href="#" class="btn-actions  bg-success bg-gradient">read</button>
+               <button data-trans="update" onclick="onUpdateBook(${book.id})" href="#" class="btn-actions  bg-primary bg-gradient">update</button>
+               <button data-trans="delete" onclick="onRemoveBook(${book.id})" href="#" class="btn-actions  bg-danger bg-gradient">delte</button>
                </div>
              </div>
            </div>`

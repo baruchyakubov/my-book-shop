@@ -1,6 +1,11 @@
+
+@import url('font.css');
+
+*{
+    font-family: 'Fuzzy Bubbles', cursive;
+}
 html{
     overflow-x: hidden;
-  
 }
 .actions{
     display: flex;
@@ -20,6 +25,7 @@ label , .add , .lang , .pres{
 }
 .btn-group{
     margin-inline-start: 20px;
+    margin-bottom: 10px;
     direction: ltr;
 }
 body.rtl {
@@ -30,10 +36,15 @@ body.rtl {
    display: flex;
    justify-content: center;
    overflow: auto;
+   margin-left: 0.06rem;
+   border-radius: 10px;
+   cursor: pointer;
+   padding: 0.2rem;
 }
-.read , .update , .delete{
-    margin-left: 0.06rem;
+.btn-actions:hover{
+    color: aquamarine;
 }
+
 
 
 
@@ -60,7 +71,7 @@ th{
 }
 
 .add{
-    margin-bottom: 1vh;
+    margin-bottom: 10px;
 }
 
 .description{
@@ -136,6 +147,27 @@ h4{
     flex-direction: row;
     flex-wrap: wrap;
 }
+@media (max-width: 780px){
+    th, td{
+     font-size: medium;
+    }
+ }
+@media (max-width: 576px){
+    th, td{
+    font-size: small;
+   }
+}
+@media (max-width: 420px){
+    th, td{
+     font-size: x-small;
+    }
+ }
+
+ @media (max-width: 385px){
+    th, td{
+     font-size: xx-small;
+    }
+ }
 
 
 
