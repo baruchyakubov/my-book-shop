@@ -62,11 +62,11 @@ h1{
 }
 
 td{
-    font-size: x-large;
+    font-size: xx-small;
 }
 
 th{
-    font-size: x-large;
+    font-size: xx-small;
     background-color: hsla(50, 33%, 25%, .75);
     padding: 20px;
 }
@@ -148,25 +148,28 @@ h4{
     flex-direction: row;
     flex-wrap: wrap;
 }
-@media (max-width: 780px){
-    th, td{
-     font-size: medium;
-    }
- }
-@media (max-width: 576px){
-    th, td{
-    font-size: small;
-   }
-}
-@media (max-width: 420px){
+
+
+
+
+ @media (min-width: 385px){
     th, td{
      font-size: x-small;
     }
  }
-
- @media (max-width: 385px){
+ @media (min-width: 420px){
     th, td{
-     font-size: xx-small;
+     font-size: small;
+    }
+ }
+ @media (min-width: 576px){
+    th, td{
+    font-size: small;
+   }
+}
+ @media (min-width: 780px){
+    th, td{
+     font-size: x-large;
     }
  }
 
